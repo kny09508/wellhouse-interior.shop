@@ -55,7 +55,7 @@
 @media (max-width:900px){.hero-numbers strong{height:36px}}
 @media (max-width:560px){.hero-numbers strong{height:30px}}
 @media (max-width:560px){.hero{height:auto;min-height:0;background:none;display:grid;grid-template-areas:"stack" "form";grid-template-rows:auto auto}
-.hero-media{position:relative;grid-area:stack;top:auto;left:auto;right:auto;bottom:auto;aspect-ratio:3/4;width:100%;overflow:hidden}
+.hero-media{position:relative;grid-area:stack;top:auto;left:auto;right:auto;bottom:auto;height:100svh;min-height:100svh;width:100%;overflow:hidden}
 .hero-overlay{background:linear-gradient(180deg,#18151200 42%,#181512d9 100%)}
 .hero-meta{position:absolute;top:auto;bottom:16px;left:16px;right:16px}
 .hero-copy{grid-area:stack;position:relative;z-index:2;align-self:end;top:auto;left:auto;padding:20px 6vw 52px;color:#fff}
