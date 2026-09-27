@@ -58,9 +58,10 @@
 .hero-media{position:relative;grid-area:stack;top:auto;left:auto;right:auto;bottom:auto;height:100svh;min-height:100svh;width:100%;overflow:hidden}
 .hero-overlay{background:linear-gradient(180deg,#18151200 42%,#181512d9 100%)}
 .hero-meta{position:absolute;top:auto;bottom:16px;left:16px;right:16px}
-.hero-copy{grid-area:stack;position:relative;z-index:2;align-self:end;top:auto;left:auto;padding:20px 6vw 52px;color:#fff}
+.hero-copy{grid-area:stack;position:relative;z-index:2;align-self:center;top:auto;left:auto;padding:20px 6vw 52px;color:#fff}
 .hero-copy .eyebrow{color:#fff}
-.hero-description{color:#ffffffc7}
+.hero-description{color:#ffffffc7;margin-top:34px}
+.hero-numbers{margin-top:42px}
 .hero-numbers{border-top-color:rgba(255,255,255,.3)}
 .hero-numbers>div:not(:last-child){border-right-color:rgba(255,255,255,.3)}
 .hero-numbers strong{color:#fff}
