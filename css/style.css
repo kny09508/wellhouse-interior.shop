@@ -121,3 +121,68 @@
 .quick-menu .quick-caption{display:none}
 .quick-menu .quick-item-top{display:none}
 }
+
+/* ===== 견적 문의 폼 개선 (상단/하단 공통) ===== */
+.quote-form{--primary:#3e3027;position:relative;overflow:hidden;border:1px solid #5c4a3d61;border-radius:22px;color:#2b2520}
+.quote-form::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--primary)}
+.quote-form label:not(.consent){color:#3a332d}
+.form-head p:last-child{color:#4f4841}
+.quote-form .section-kicker{color:#3e3027}
+.consent{color:#4a443e}
+.submit-button{border-radius:10px}
+.submit-button:hover{background:#2c211a}
+.quote-form input:not([type=checkbox]),.quote-form textarea{border-radius:10px;color:#2b2520}
+.quote-form ::placeholder{color:#8a847c}
+.space-field,.addr-field{margin-bottom:14px}
+.space-label{margin:0 0 8px;font-size:14px;font-weight:600;color:#2b2520}
+.space-label small{font-weight:400;color:#6a635b;font-size:12px}
+.space-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.space-option{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:1px solid #d9d3c9;border-radius:10px;background:#fff;color:#2b2520;font:inherit;font-size:14px;font-weight:600;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}
+.space-option:hover{border-color:#9a8c7d}
+.space-option.active{background:#efe8de;border-color:var(--primary)}
+.space-dot{flex:none;width:14px;height:14px;border:1.5px solid #c7c0b5;border-radius:50%;background:#fff;position:relative}
+.space-option.active .space-dot{border-color:var(--primary)}
+.space-option.active .space-dot::after{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--primary)}
+.space-text{flex:1;white-space:nowrap}
+.space-check{flex:none;color:var(--primary)}
+.addr-row{display:flex;gap:8px}
+.quote-form .addr-row input{flex:1;min-width:0;margin-top:0;cursor:pointer}
+.addr-btn{flex:none;padding:0 16px;border:0;border-radius:10px;background:var(--primary);color:#fff;font:inherit;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+.addr-btn:hover{background:#2c211a}
+.quote-form .addr-detail{margin-top:8px}
+.addr-overlay{position:fixed;inset:0;z-index:99990;background:rgba(20,17,13,.55);display:flex;align-items:center;justify-content:center;padding:16px}
+.addr-box{width:min(500px,100%);height:min(560px,88vh);background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.addr-head{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #e7e2d9;font-weight:600;color:#2b2520}
+.addr-close{border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:#6a635b}
+.addr-body{flex:1;min-height:0}
+/* 히어로(상단) 폼: 항목이 늘어난 만큼 촘촘하게 */
+.hero-form-wrap .quote-form{border-radius:20px}
+.hero-form-wrap .quote-form.compact{padding:20px 22px 18px}
+.hero-form-wrap .form-head p:last-child{margin-bottom:12px;font-size:13px}
+.hero-form-wrap .form-title-row{margin-bottom:6px}
+.hero-form-wrap .form-head h3{font-size:22px}
+.hero-form-wrap .space-label{margin-bottom:6px;font-size:13px}
+.hero-form-wrap .space-field,.hero-form-wrap .addr-field{margin-bottom:10px}
+.hero-form-wrap .space-option{min-height:38px;font-size:13px;padding:0 10px;gap:6px}
+.hero-form-wrap .quote-form label:not(.consent){margin-bottom:10px;font-size:13px}
+.hero-form-wrap .quote-form input:not([type=checkbox]),.hero-form-wrap .quote-form textarea{padding:10px 13px;font-size:15px;margin-top:5px}
+.hero-form-wrap .quote-form .addr-row input{margin-top:0}
+.hero-form-wrap .quote-form .addr-detail{margin-top:6px}
+.hero-form-wrap .quote-form textarea{height:62px;min-height:62px}
+.hero-form-wrap .addr-btn{padding:0 13px;font-size:13px}
+.hero-form-wrap .consent{margin:8px 0 12px;font-size:12px}
+.hero-form-wrap .submit-button{padding:13px 14px}
+/* 상단 폼 팝업 (접속 시 노출 → X 누르면 원래 위치로 이동) */
+.hero-form-wrap{transition:translate .6s cubic-bezier(.22,.8,.25,1)}
+.hero-form-wrap.is-popup{z-index:300;animation:heroPopIn .45s ease both}
+@keyframes heroPopIn{from{opacity:0;scale:.96}to{opacity:1;scale:1}}
+.hero-form-wrap.is-popup .quote-form{max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);overflow-y:auto;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+.hero-popup-backdrop{position:fixed;inset:0;z-index:250;background:rgba(20,17,13,.6);animation:heroFade .35s ease both}
+@keyframes heroFade{from{opacity:0}to{opacity:1}}
+.hero-popup-close{position:absolute;top:-14px;right:-14px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;background:#fff;color:#2b2520;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+@media (max-width:900px){.hero-form-wrap.is-popup{position:relative}}
+@media (max-width:560px){
+.space-options{grid-template-columns:repeat(2,1fr)}
+.hero-popup-close{top:-10px;right:-6px}
+}
+@media (prefers-reduced-motion:reduce){.hero-form-wrap{transition:none}.hero-form-wrap.is-popup,.hero-popup-backdrop{animation:none}}
