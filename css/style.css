@@ -200,25 +200,21 @@
 /* ===== INTERIOR SERVICE (공간 별 / 서비스 별) ===== */
 .interior .services-title{margin-bottom:56px}
 .interior .services-title h2{margin-bottom:0;font-size:clamp(38px,4vw,59px)}
-.svc-group+.svc-group{margin-top:64px}
-.svc-group-title{display:flex;align-items:center;gap:16px;margin:0 0 22px;font-size:22px;font-weight:600;color:#2b2520}
+.svc-group+.svc-group{margin-top:80px}
+.svc-group-title{display:flex;align-items:center;gap:16px;margin:0 0 30px;font-size:22px;font-weight:600;color:#2b2520}
 .svc-group-title::after{content:"";flex:1;height:1px;background:var(--line)}
-.svc-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
-.svc-grid-space .svc-tile{width:calc((100% - 64px)/5)}
-.svc-grid-work .svc-tile{width:calc((100% - 80px)/6)}
-.svc-tile{position:relative;margin:0;overflow:hidden;border-radius:14px;aspect-ratio:4/3;background:#e9e5de}
-.svc-tile img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.svc-tile:hover img{transform:scale(1.06)}
-.svc-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 13px;color:#fff;font-size:15px;font-weight:600;line-height:1.3;background:linear-gradient(transparent,rgba(20,17,13,.72))}
-@media (max-width:1100px){
-.svc-grid-space .svc-tile{width:calc((100% - 32px)/3)}
-.svc-grid-work .svc-tile{width:calc((100% - 48px)/4)}
-}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 32px}
+.svc-tile{margin:0;border-radius:0;overflow:hidden;background:none}
+.svc-tile img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:0;background:#e9e5de;transition:filter .3s ease}
+.svc-tile:hover img{filter:brightness(.93)}
+.svc-info{padding:22px 2px 0}
+.svc-info h4{position:relative;margin:0 0 10px;padding-top:16px;font-size:24px;font-weight:700;line-height:1.3;color:#2b2520}
+.svc-info h4::before{content:"";position:absolute;top:0;left:0;width:32px;height:3px;background:var(--primary)}
+.svc-info p{margin:0;color:#6a645c;font-size:15px;line-height:1.75}
 @media (max-width:640px){
-.svc-grid{gap:10px}
-.svc-grid-space .svc-tile,.svc-grid-work .svc-tile{width:calc((100% - 10px)/2)}
-.svc-tile figcaption{padding:26px 11px 10px;font-size:13px}
-.svc-group+.svc-group{margin-top:48px}
+.svc-grid{grid-template-columns:1fr;gap:36px}
+.svc-info h4{font-size:21px}
+.svc-group+.svc-group{margin-top:56px}
 .svc-group-title{font-size:19px}
 .interior .services-title{margin-bottom:40px}
 }
