@@ -226,3 +226,106 @@
 /* ===== PROJECT 안내 문구 ===== */
 .projects-heading .project-desc{margin:0;color:#8a847c;font-size:13px;line-height:1.7}
 @media (max-width:900px){.projects-heading .project-desc{margin-top:14px}}
+
+/* =====================================================================
+   수정 요청 반영 (기존 규칙은 건드리지 않고 아래에서만 덮어씀)
+   ===================================================================== */
+
+/* ---- 1. 견적 문의 폼: 요청사항 입력칸 세로 길이 2배 ---- */
+/* 상단(히어로) 폼: 62px -> 124px */
+.hero-form-wrap .quote-form textarea{height:124px;min-height:124px}
+/* 하단 폼: 170px -> 340px (모바일 130px -> 260px) */
+.quote-form textarea{height:340px;min-height:340px}
+@media (max-width:560px){
+  .quote-form textarea{height:260px;min-height:260px}
+}
+
+/* ---- 2·3. 견적 문의 팝업: 가로 확대 + 실제 창(타이틀바 + 닫기 버튼) 형태 ---- */
+.hero-form-wrap{transition:translate .6s cubic-bezier(.22,.8,.25,1),width .6s cubic-bezier(.22,.8,.25,1)}
+.hero-form-wrap.is-popup{
+  width:min(680px,94vw);
+  padding-top:46px;
+  background:#fff;
+  border:1px solid #3e3027;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.45);
+}
+/* 창 제목 표시줄 */
+.hero-form-wrap.is-popup::before{
+  content:"견적 문의";
+  position:absolute;top:0;left:0;right:0;z-index:1;
+  height:46px;line-height:46px;padding-left:20px;
+  background:#3e3027;color:#fff;
+  font-size:14px;font-weight:600;letter-spacing:.06em;
+}
+/* 창 안쪽 폼: 별도 테두리/그림자 제거, 제목줄 높이만큼 최대높이 조정 */
+.hero-form-wrap.is-popup .quote-form{
+  border:0;border-radius:0;box-shadow:none;
+  max-height:calc(100vh - 86px);max-height:calc(100dvh - 86px);
+  overflow-y:auto;
+}
+.hero-form-wrap.is-popup .quote-form::before{display:none}
+/* 닫기(X) 버튼: 제목줄 우측에 또렷한 창 닫기 버튼 */
+.hero-form-wrap.is-popup .hero-popup-close{
+  top:6px;right:8px;z-index:3;
+  width:36px;height:34px;border-radius:8px;
+  background:#c8473d;color:#fff;
+  font-size:26px;font-weight:400;line-height:1;
+  box-shadow:none;
+  display:grid;place-items:center;
+  transition:background .15s;
+}
+.hero-form-wrap.is-popup .hero-popup-close:hover,
+.hero-form-wrap.is-popup .hero-popup-close:focus-visible{background:#e0584d;outline:0}
+/* 태블릿/모바일: 화면 가로를 거의 꽉 채움 */
+@media (max-width:900px){
+  .hero-form-wrap.is-popup{width:auto;max-width:640px;margin-left:12px;margin-right:12px}
+}
+@media (max-width:560px){
+  .hero-form-wrap.is-popup{max-width:none;margin-left:8px;margin-right:8px}
+}
+@media (prefers-reduced-motion:reduce){.hero-form-wrap{transition:none}}
+
+/* ---- 4. INTERIOR SERVICE: 공간 별 / 서비스 별 배경색 (좌우 끝까지 꽉 찬 띠 형태) ---- */
+.interior.section-pad{padding-bottom:0}
+.interior .svc-group{margin-left:-9.5vw;margin-right:-9.5vw;padding:72px 9.5vw}
+.interior .svc-group+.svc-group{margin-top:0;padding-bottom:120px}
+@media (max-width:900px){
+  .interior .svc-group{margin-left:-7vw;margin-right:-7vw;padding:56px 7vw}
+  .interior .svc-group+.svc-group{padding-bottom:84px}
+}
+/* 공간 별: #EAE7E0 */
+.interior .services-title+.svc-group{background:#eae7e0}
+.interior .services-title+.svc-group .svc-group-title::after{background:#cdc7bc}
+.interior .services-title+.svc-group .svc-tile{border-bottom-color:#cdc7bc}
+/* 서비스 별: #5C4A3D (어두운 배경 → 글자/선 색을 밝게) */
+.interior .svc-group+.svc-group{background:#5c4a3d}
+.interior .svc-group+.svc-group .svc-group-title{color:#f5f0ea}
+.interior .svc-group+.svc-group .svc-group-title::after{background:rgba(255,255,255,.28)}
+.interior .svc-group+.svc-group .svc-tile{border-bottom-color:rgba(255,255,255,.2)}
+.interior .svc-group+.svc-group .svc-info h4{color:#fff}
+.interior .svc-group+.svc-group .svc-info h4::before{background:#d8c3ac}
+.interior .svc-group+.svc-group .svc-info p{color:rgba(255,255,255,.8)}
+
+/* ---- 5. 인테리어 진행 과정: 카드 제목 크고 굵게 ---- */
+.process-item h3{
+  margin:22px 0 12px;
+  font-size:20px;font-weight:700;line-height:1.35;
+  color:#2b2520;letter-spacing:-.03em;word-break:keep-all;
+}
+@media (max-width:560px){
+  .process-item h3{font-size:17px;margin:18px 0 10px}
+}
+
+/* ---- 6. PROJECT: 사진 좌상단 "W" 텍스트 → 실제 로고 아이콘 ---- */
+.project-image:before{
+  content:"";
+  width:26px;height:26px;
+  background:url(../assets/wellhouse-logo-white.png) center/contain no-repeat;
+  font-size:0;text-shadow:none;opacity:.95;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.55));
+}
+@media (max-width:560px){
+  .project-image:before{width:22px;height:22px;top:9px;left:10px}
+}
