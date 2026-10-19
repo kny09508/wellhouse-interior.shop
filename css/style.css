@@ -329,3 +329,11 @@
 @media (max-width:560px){
   .project-image:before{width:22px;height:22px;top:9px;left:10px}
 }
+
+/* ---- 견적 문의 전송 실패 안내 문구 ---- */
+.quote-form .form-error{
+  margin:12px 0 0;padding:12px 14px;
+  background:#fdeceb;border:1px solid #f0c2be;border-radius:8px;
+  color:#a32a22;font-size:13px;line-height:1.65;word-break:keep-all;
+}
+.quote-form .form-error a{color:inherit;font-weight:700;text-decoration:underline;white-space:nowrap}
