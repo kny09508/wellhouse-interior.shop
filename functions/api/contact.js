@@ -12,7 +12,9 @@ const DEFAULT_FROM_EMAIL = "noreply@wellhouse-interior.shop";
 const TO = ["dagttw@naver.com"];
 const CC = ["fkdl789123@st-group1.com", "fkdl789123@naver.com"];
 
-const SUBJECT = "[웰하우스인테리어] 견적문의가 접수되었습니다";
+// 제목 형식: [웰하우스인테리어 견적문의] OOO님
+const buildSubject = (name) =>
+  `[웰하우스인테리어 견적문의] ${String(name).replace(/\s+/g, " ").trim()}님`;
 
 // 허용할 Origin (다른 사이트에서 이 API 를 마음대로 호출하는 것을 방지)
 const ALLOWED_ORIGINS = [
@@ -138,7 +140,7 @@ export async function onRequestPost({ request, env }) {
         from: `${FROM_NAME} <${fromEmail}>`,
         to: TO,
         cc: CC,
-        subject: SUBJECT,
+        subject: buildSubject(data.name),
         html: buildHtml(fields, receivedAt),
         text: buildText(fields, receivedAt),
       }),
